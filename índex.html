@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vitória Hotel em São Francisco - MG. Consulte nossas acomodações e faça sua reserva pelo WhatsApp.">
+<meta name="theme-color" content="#5b7d18">
+
+<title>Vitória Hotel | São Francisco - MG</title>
+
+<style>
+:root {
+  --green: #5b7d18;
+  --green-dark: #405b10;
+  --blue: #1768a8;
+  --blue-dark: #104d80;
+  --cream: #f7f8f3;
+  --ink: #20251b;
+  --muted: #687064;
+  --white: #fff;
+  --line: #e5e9df;
+  --shadow: 0 14px 38px rgba(35,53,20,.10);
+  --radius: 20px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+
+.container {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.brand strong {
+  color: var(--green);
+  font-family: Georgia, serif;
+  font-size: 1.25rem;
+}
+
+.brand small {
+  display: block;
+  color: var(--muted);
+  font-size: .68rem;
+  letter-spacing: .08em;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: .92rem;
+  font-weight: 700;
+}
+
+nav a:hover { color: var(--green); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 13px 21px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-green {
+  background: var(--green);
+  color: white;
+}
+
+.btn-green:hover { background: var(--green-dark); }
+
+.btn-blue {
+  background: var(--blue);
+  color: white;
+}
+
+.hero {
+  background:
+    linear-gradient(115deg, rgba(26,48,12,.78), rgba(15,65,103,.58)),
+    url('IMAGEM-FACHADA-AQUI.jpg') center/cover;
+  color: white;
+  padding: 105px 0 100px;
+}
+
+.hero-content { max-width: 680px; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .78rem;
+  font-weight: 700;
+  color: #dcebbd;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(2.5rem, 6vw, 4.7rem);
+  line-height: 1.05;
+  margin: 12px 0 18px;
+}
+
+.hero p {
+  max-width: 570px;
+  font-size: 1.12rem;
+  color: rgba(255,255,255,.92);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+section { padding: 76px 0; }
+
+.section-soft { background: var(--cream); }
+
+.section-heading {
+  max-width: 700px;
+  margin-bottom: 32px;
+}
+
+.section-heading span {
+  color: var(--green);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .75rem;
+}
+
+h2 {
+  margin: 8px 0 10px;
+  font: 700 clamp(1.9rem, 4vw, 2.8rem)/1.15 Georgia, serif;
+  color: var(--green-dark);
+}
+
+.section-heading p { color: var(--muted); }
+
+.intro-grid, .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.photo-placeholder {
+  min-height: 310px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg,#e9efdf,#dce8ef);
+  display: grid;
+  place-items: center;
+  color: #53634b;
+  text-align: center;
+  padding: 24px;
+  border: 1px dashed #9cad8d;
+}
+
+.photo-placeholder strong {
+  display: block;
+  font-size: 1.1rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.feature {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.feature b {
+  display: block;
+  color: var(--green-dark);
+}
+
+.feature span {
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 24px;
+}
+
+.room-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.room-card h3 {
+  margin: 18px 20px 4px;
+  color: var(--green-dark);
+  font: 700 1.4rem Georgia,serif;
+}
+
+.room-card > p {
+  margin: 0 20px 16px;
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 7px;
+  padding: 0 12px 12px;
+}
+
+.gallery img, .gallery .placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.gallery .placeholder {
+  background: #edf1e8;
+  border: 1px dashed #aab99b;
+  color: #65745b;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 8px;
+  font-size: .8rem;
+}
+
+.room-note {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border-left: 4px solid var(--blue);
+  background: #edf5fb;
+  border-radius: 8px;
+  color: #34536b;
+}
+
+.amenities {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+}
+
+.amenity {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.amenity b {
+  display: block;
+  color: var(--green-dark);
+}
+
+.amenity small { color: var(--muted); }
+
+.contact-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.contact-card p {
+  margin: 8px 0 18px;
+  color: var(--muted);
+}
+
+.contact-card a { overflow-wrap: anywhere; }
+
+.map-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.map-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 390px;
+  border: 0;
+}
+
+footer {
+  background: #243414;
+  color: white;
+  padding: 34px 0;
+}
+
+footer .footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+footer p {
+  color: #d9e2d0;
+  font-size: .9rem;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 20;
+  background: #1fbd61;
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 14px 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+}
+
+@media (max-width: 760px) {
+  .nav {
+    padding: 10px 0;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 5px 0;
+  }
+
+  nav a {
+    white-space: nowrap;
+    font-size: .82rem;
+  }
+
+  .hero { padding: 76px 0; }
+
+  section { padding: 58px 0; }
+
+  .intro-grid, .contact-grid, .rooms {
+    grid-template-columns: 1fr;
+  }
+
+  .features, .amenities {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .map-wrap iframe { height: 330px; }
+}
+
+@media (max-width: 430px) {
+  .container { width: min(100% - 28px, 1120px); }
+
+  .features, .amenities {
+    grid-template-columns: 1fr;
+  }
+
+  .brand img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .whatsapp-float {
+    right: 12px;
+    bottom: 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <a class="brand" href="#inicio">
+      <img src="logo-vitoria-hotel.png" alt="Logo Vitória Hotel">
+      <span>
+        <strong>Vitória Hotel</strong>
+        <small>CONFORTO E BOM ATENDIMENTO</small>
+      </span>
+    </a>
+
+    <nav>
+      <a href="#sobre">O hotel</a>
+      <a href="#acomodacoes">Acomodações</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#contato">Contato</a>
+      <a href="#localizacao">Localização</a>
+    </nav>
+
+    <a class="btn btn-green"
+       href="https://wa.me/5538998022439"
+       target="_blank">
+       Reservar pelo WhatsApp
+    </a>
+
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+  <div class="container hero-content">
+
+    <div class="eyebrow">São Francisco · Minas Gerais</div>
+
+    <h1>Seja bem-vindo ao Vitória Hotel</h1>
+
+    <p>
+      Conforto e bom atendimento para sua estadia
+      em São Francisco, Minas Gerais.
+    </p>
+
+    <div class="hero-actions">
+
+      <a class="btn btn-green"
+         href="https://wa.me/5538998022439?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20uma%20reserva%20no%20Vit%C3%B3ria%20Hotel."
+         target="_blank">
+         Consultar disponibilidade
+      </a>
+
+      <a class="btn btn-blue" href="#acomodacoes">
+        Conheça as acomodações
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="container intro-grid">
+
+    <div>
+      <div class="section-heading">
+        <span>Conheça o hotel</span>
+
+        <h2>Uma estadia acolhedora em São Francisco</h2>
+
+        <p>
+          O Vitória Hotel recebe seus hóspedes com a proposta
+          de conforto e bom atendimento. Entre em contato para
+          consultar disponibilidade, tarifas e detalhes da hospedagem.
+        </p>
+      </div>
+
+      <div class="features">
+
+        <div class="feature">
+          <b>Atendimento</b>
+          <span>Consulte a equipe pelo WhatsApp.</span>
+        </div>
+
+        <div class="feature">
+          <b>Localização</b>
+          <span>Av. Montes Claros, 1430.</span>
+        </div>
+
+        <div class="feature">
+          <b>Reservas</b>
+          <span>Fale diretamente com o hotel.</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="photo-placeholder">
+      <div>
+        <strong>Foto real da fachada ou recepção</strong>
+        Substitua este espaço por uma foto fornecida pelo hotel.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section-soft" id="acomodacoes">
+  <div class="container">
+
+    <div class="section-heading">
+      <span>Hospedagem</span>
+      <h2>Nossas acomodações</h2>
+      <p>
+        Veja as categorias de quartos disponíveis.
+        Os nomes, a capacidade e os itens de cada categoria
+        devem ser confirmados diretamente com o hotel.
+      </p>
+    </div>
+
+    <div class="rooms">
+
+      <article class="room-card">
+
+        <h3>Categoria de quarto 1</h3>
+
+        <p>
+          Insira aqui o nome oficial, capacidade e descrição
+          confirmada pelo hotel.
+        </p>
+
+        <div class="gallery">
+          <div class="placeholder">Foto real 1</div>
+          <div class="placeholder">Foto real 2</div>
+          <div class="placeholder">Foto real 3</div>
+          <div class="placeholder">Foto real 4</div>
+        </div>
+
+      </article>
+
+      <article class="room-card">
+
+        <h3>Categoria de quarto 2</h3>
+
+        <p>
+          Insira aqui o nome oficial, capacidade e descrição
+          confirmada pelo hotel.
+        </p>
+
+        <div class="gallery">
+          <div class="placeholder">Foto real 1</div>
+          <div class="placeholder">Foto real 2</div>
+          <div class="placeholder">Foto real 3</div>
+          <div class="placeholder">Foto real 4</div>
+        </div>
+
+      </article>
+
+    </div>
+
+    <div class="room-note">
+      <b>Importante:</b> as categorias acima são espaços
+      de preenchimento, não categorias confirmadas.
+      Envie as fotos reais e os nomes dos quartos para
+      substituir estes espaços.
+    </div>
+
+  </div>
+</section>
+
+<section id="estrutura">
+  <div class="container">
+
+    <div class="section-heading">
+      <span>Comodidades e serviços</span>
+      <h2>Estrutura do Vitória Hotel</h2>
+      <p>
+        Confirme com a recepção quais serviços estão
+        disponíveis antes de publicar esta seção.
+      </p>
+    </div>
+
+    <div class="amenities">
+
+      <div class="amenity">
+        <b>☕ Café da manhã</b>
+        <small>Informar se está incluso e o horário.</small>
+      </div>
+
+      <div class="amenity">
+        <b>🚗 Estacionamento</b>
+        <small>Informar disponibilidade e condições.</small>
+      </div>
+
+      <div class="amenity">
+        <b>📶 Wi-Fi</b>
+        <small>Confirmar disponibilidade nas acomodações.</small>
+      </div>
+
+      <div class="amenity">
+        <b>❄️ Ar-condicionado</b>
+        <small>Informar em quais categorias há equipamento.</small>
+      </div>
+
+      <div class="amenity">
+        <b>📺 Televisão</b>
+        <small>Confirmar os itens de cada quarto.</small>
+      </div>
+
+      <div class="amenity">
+        <b>🧊 Frigobar</b>
+        <small>Confirmar disponibilidade por acomodação.</small>
+      </div>
+
+    </div>
+
+    <div class="room-note">
+      Preencha também a capacidade de cada quarto,
+      valores das diárias, horário de check-in e check-out
+      e regras de reserva/cancelamento.
+    </div>
+
+  </div>
+</section>
+
+<section class="section-soft" id="contato">
+  <div class="container contact-grid">
+
+    <div>
+      <div class="section-heading">
+        <span>Fale conosco</span>
+
+        <h2>Faça sua consulta ou reserva</h2>
+
+        <p>
+          Entre em contato diretamente com o Vitória Hotel
+          para consultar datas disponíveis, valores e condições.
+        </p>
+      </div>
+
+      <a class="btn btn-green"
+         href="https://wa.me/5538998022439?text=Ol%C3%A1%21%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20hospedagem%20no%20Vit%C3%B3ria%20Hotel."
+         target="_blank">
+         Conversar pelo WhatsApp
+      </a>
+    </div>
+
+    <div class="contact-card">
+
+      <h3>Vitória Hotel</h3>
+
+      <p>
+        <b>Endereço</b><br>
+        Avenida Montes Claros, nº 1430<br>
+        São Francisco – MG
+      </p>
+
+      <p>
+        <b>WhatsApp</b><br>
+        <a href="https://wa.me/5538998022439" target="_blank">
+          (38) 99802-2439
+        </a>
+      </p>
+
+      <p>
+        <b>Reservas e informações</b><br>
+        Atendimento pelo WhatsApp. Consulte a equipe
+        para confirmar horários e disponibilidade.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- MAPA DO GOOGLE NO FINAL DO SITE -->
+
+<section id="localizacao">
+  <div class="container">
+
+    <div class="section-heading">
+      <span>Como chegar</span>
+
+      <h2>Encontre o Vitória Hotel</h2>
+
+      <p>
+        Use o mapa abaixo para visualizar a localização
+        e traçar sua rota até o hotel.
+      </p>
+    </div>
+
+    <div class="map-wrap">
+
+      <iframe
+        title="Mapa do Vitória Hotel em São Francisco - MG"
+        src="https://www.google.com/maps?q=Vit%C3%B3ria%20Hotel%2C%20Avenida%20Montes%20Claros%2C%201430%2C%20S%C3%A3o%20Francisco%2C%20MG&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+    <p style="margin-top:16px">
+
+      <a class="btn btn-blue"
+         href="https://www.google.com/maps/search/?api=1&query=Vitoria+Hotel+Avenida+Montes+Claros+1430+Sao+Francisco+MG"
+         target="_blank">
+         Abrir rota no Google Maps
+      </a>
+
+    </p>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-row">
+
+    <div>
+      <strong>Vitória Hotel</strong>
+      <p>Conforto e bom atendimento.</p>
+    </div>
+
+    <p>
+      Av. Montes Claros, 1430 · São Francisco – MG<br>
+      WhatsApp: (38) 99802-2439
+    </p>
+
+    <p>
+      ©️ <span id="year"></span> Vitória Hotel.
+      Todos os direitos reservados.
+    </p>
+
+  </div>
+</footer>
+
+<a class="whatsapp-float"
+   href="https://wa.me/5538998022439"
+   target="_blank"
+   aria-label="Fale com o Vitória Hotel pelo WhatsApp">
+   WhatsApp
+</a>
+
+<script>
+document.getElementById('year').textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+</html>
